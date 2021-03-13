@@ -13,10 +13,13 @@ class BandsController < ApplicationController
   # GET /bands/new
   def new
     @band = Band.new
+    @kinds = Band.kinds.keys
   end
 
   # GET /bands/1/edit
   def edit
+    #@kinds = Band.kinds.map{|key,value| [key, key]}
+    @kinds = Band.kinds.keys
   end
 
   # POST /bands or /bands.json
@@ -64,6 +67,6 @@ class BandsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def band_params
-      params.require(:band).permit(:name, :type, :start_date)
+      params.require(:band).permit(:name, :kind, :start_date)
     end
 end

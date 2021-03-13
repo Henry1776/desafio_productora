@@ -1,9 +1,10 @@
+<div class = "text-white">
 <p id="notice"><%= notice %></p>
 
 <h1>Concerts</h1>
 
-<table>
-  <thead>
+<table class="table text-white">
+  <thead class="thead-light">
     <tr>
       <th>Location</th>
       <th>Date</th>
@@ -13,16 +14,16 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class = "text-white">
     <% @concerts.each do |concert| %>
       <tr>
         <td><%= concert.location %></td>
         <td><%= concert.date %></td>
         <td><%= concert.quantity %></td>
         <td><%= concert.duration %></td>
-        <td><%= link_to 'Show', concert %></td>
-        <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
-        <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', band_concert_path(@band,concert) %></td>
+        <td><%= link_to 'Edit', edit_band_concert_path(@band,concert) %></td>
+        <td><%= link_to 'Destroy', band_concert_path(@band,concert) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Concert', new_concert_path %>
+<%= link_to 'New Concert', new_band_concert_path(@band) %>
+</div>

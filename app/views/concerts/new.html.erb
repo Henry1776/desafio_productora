@@ -1,5 +1,7 @@
+<div class = "text-white">
 <h1>New Concert</h1>
 
 <%= render 'form', concert: @concert %>
 
-<%= link_to 'Back', concerts_path %>
+<%= link_to 'Back', band_concerts_path(@band) %>
+</div>
